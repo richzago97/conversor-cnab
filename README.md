@@ -1,8 +1,8 @@
 ## desafio-backend-python
-# Conversor CNAB
+# CNAB converter
 
 
-## Passos iniciais
+## Initial steps
 1 - Create the development environment with the command:
 
 ```
