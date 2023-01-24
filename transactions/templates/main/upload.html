@@ -1,0 +1,10 @@
+<div class="container">
+        <h1>Conversor de arquivos CNAB</h1>
+        <h2>O arquivo deve ser do tipo .txt</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="upload" accept=".txt">
+            <button type="submit">Enviar</button>
+    
+        </form>
+</div
