@@ -33,4 +33,3 @@ pip install -r requirements.txt
 5 - Run the command to start the project
  ```
  python manage.py runserver
- ```
