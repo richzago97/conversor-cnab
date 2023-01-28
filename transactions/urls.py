@@ -1,6 +1,7 @@
 from django.urls import path
-from . import views
+from .views import upload_file, transactions
 
-app_name = "main"
-
-urlpatterns = [path("", views.upload, name="upload")]
+urlpatterns = [
+    path("cnab/transactions/", transactions),
+    path("cnab/", upload_file),
+]
