@@ -28,8 +28,14 @@ pip install -r requirements.txt
 ```
 
 4 - Configure the .env.
+
   4.1 Replace the credentials with those on your machine
+
+5 - Run the command to migrate
+```
+python manage.py migrate   
+```
  
-5 - Run the command to start the project
+6- Run the command to start the project
  ```
  python manage.py runserver
