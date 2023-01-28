@@ -6,9 +6,16 @@ from .serializers import TransactionSerializer
 import datetime
 import ipdb
 
+store_data = []
+stores = {}
+
 
 def transactions(request):
-    return TemplateResponse(request, "transactions.html")
+    store_data = [
+        {"store_name": store, "store_total": total} for store, total in stores.items()
+    ]
+    context = {"store_data": store_data}
+    return render(request, "transactions.html", context)
 
 
 def upload_file(request):
@@ -16,15 +23,15 @@ def upload_file(request):
         form = UploadCnbalForm(request.POST, request.FILES)
         file = request.FILES["file"]
         if form.is_valid():
-            handle_uploaded_file(file, request)
+            handle_uploaded_file(file)
             return HttpResponseRedirect("transactions")
     else:
         form = UploadCnbalForm()
     return render(request, "upload.html", {"form": form})
 
 
-def handle_uploaded_file(file, request):
-    stores = {}
+def handle_uploaded_file(file):
+
     decoded_file = file.read().decode("utf-8")
     formated_file = decoded_file.replace("\r", "").replace("\n", "")
     start = 0
@@ -59,11 +66,6 @@ def handle_uploaded_file(file, request):
 
         start += 80
         end += 80
-    # for store, total in stores.items():
-    #     print(store, total)
-    # return render(request, "transactions.html", {"stores": stores})
     store_data = []
     for store, total in stores.items():
         store_data.append({"store_name": store, "store_total": total})
-    print(store_data)
-    return render(request, "transactions.html", {"store_data": store_data})

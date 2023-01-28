@@ -9,10 +9,8 @@
 <body>
     <h1>Transações</h1>
 
-        {% csrf_token %}
-    {% for data in store_data %}
-        <p>Nome da Loja: {{ data.store_name }}</p>
-        <p>Total de Saldo: {{ data.store_total }}</p>
-    {% endfor %}
+  {% for store in store_data %}
+    <p>{{ store.store_name }}: {{ store.store_total }}</p>
+{% endfor %}
 </body>
 </html>

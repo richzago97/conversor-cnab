@@ -8,7 +8,7 @@ class TransactionModel(models.Model):
     type = models.PositiveSmallIntegerField(
         null=False, validators=[MinValueValidator(1), MaxValueValidator(9)]
     )
-    date = models.DateField(null=False, blank=False)
+    date = models.DateField(null=False)
     value = models.DecimalField(max_digits=10, decimal_places=2, null=False)
     cpf = models.CharField(max_length=11, null=False)
     card = models.CharField(max_length=12, null=False)
