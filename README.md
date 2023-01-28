@@ -28,6 +28,7 @@ pip install -r requirements.txt
 ```
 
 4 - Configure the .env.
+
   4.1 Replace the credentials with those on your machine
 
 5 - Run the command to migrate
