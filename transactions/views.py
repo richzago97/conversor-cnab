@@ -41,7 +41,7 @@ def handle_uploaded_file(file):
         dict_cnab = {
             "type": field[0:1],
             "date": datetime.date(
-                int(field[0:1]),
+                int(field[1:5]),
                 int(field[5:7]),
                 int(field[7:9]),
             ),
@@ -66,6 +66,3 @@ def handle_uploaded_file(file):
 
         start += 80
         end += 80
-    store_data = []
-    for store, total in stores.items():
-        store_data.append({"store_name": store, "store_total": total})
